@@ -1,65 +1,274 @@
-import Image from "next/image";
+"use client";
+import { useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 
-export default function Home() {
+const Home = () => {
+  const [locationOpen, setLocationOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const locationRef = useRef(null);
+  const servicesRef = useRef(null);
+const MAPS_KEY = "AIzaSyA9z5wtpA5-uV1Zep7VuM9IUohv9AdYfuY";
+  const openLocation = () => {
+    setMenuOpen(false);
+    setLocationOpen(true);
+    setTimeout(() => {
+      locationRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
+  const scrollToServices = () => {
+    setMenuOpen(false);
+    servicesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const services = [
+    {
+      title: "Deal Sourcing",
+      desc: "We find off-market and high-yield property opportunities tailored to your investment goals.",
+      img: "/Images/service2.webp",
+    },
+    {
+      title: "Deal Analysis",
+      desc: "In-depth financial modeling and due diligence so you invest with confidence and clarity.",
+      img: "/Images/service1.webp",
+    },
+    {
+      title: "Deal Closing",
+      desc: "End-to-end support from negotiation to completion, ensuring smooth and timely transactions.",
+      img: "/Images/service3.webp",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className="bg-white font-sans text-gray-900">
+      {/* HERO */}
+      <section
+        className="relative min-h-[400px] md:min-h-[600px] bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('/Images/heroimageObsoa.webp')",
+        }}
+      >
+        {/* Nav */}
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+          <div className="text-6xl font-jomhuria font-light text-[#FFFFFF]">Obsoa</div>
+
+          {/* Desktop nav */}
+          <ul className="hidden items-center gap-8 text-sm text-[#FFFFFF] font-manrope md:flex">
+            <li onClick={scrollToServices} className="cursor-pointer hover:text-white">What We Offer</li>
+            <li onClick={openLocation} className="cursor-pointer hover:text-white">Location</li>
+            <li onClick={openLocation} className="cursor-pointer hover:text-white">Contact Us</li>
+          </ul>
+
+          <button
+            onClick={openLocation}
+            className="hidden md:block rounded-md font-poppins bg-gradient-to-r from-[#60BBEE] to-[#0A72AD] px-5 py-2 text-sm font-medium text-white shadow-lg transition"
+          >
+            Contact Us
+          </button>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden text-white"
+          >
+            <Menu size={28} />
+          </button>
+        </nav>
+
+        {/* Hero content */}
+        <div className="mx-auto flex max-w-4xl flex-col items-center px-6 pb-24 pt-24 text-center">
+          <h1 className="text-4xl font-bold font-manrope leading-tight text-[#FFFFFF] md:text-6xl">
+            Find High-Potential <br /> Property Deals in Dublin
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-12 max-w-2xl text-base text-[#FFFFFF] font-manrope md:text-lg">
+            We source, analyse, and secure profitable property opportunities for real estate investors across Ireland.
           </p>
+         
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Mobile Sidebar */}
+      {/* Overlay */}
+      <div
+        onClick={() => setMenuOpen(false)}
+        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 md:hidden ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Sidebar panel */}
+      <div
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#0f172a] flex flex-col px-6 py-8 transition-transform duration-300 md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close + Logo row */}
+        <div className="flex items-center justify-between mb-10">
+          <div className="text-5xl font-jomhuria font-light text-white">Obsoa</div>
+          <button onClick={() => setMenuOpen(false)} className="text-white">
+            <X size={26} />
+          </button>
         </div>
-      </main>
+
+        {/* Nav links */}
+        <ul className="flex flex-col gap-6 text-base font-manrope text-white">
+          <li
+            onClick={scrollToServices}
+            className="cursor-pointer border-b border-white/10 pb-4 hover:text-[#60BBEE] transition"
+          >
+            What We Offer
+          </li>
+          <li
+            onClick={openLocation}
+            className="cursor-pointer border-b border-white/10 pb-4 hover:text-[#60BBEE] transition"
+          >
+            Location
+          </li>
+          <li
+            onClick={openLocation}
+            className="cursor-pointer border-b border-white/10 pb-4 hover:text-[#60BBEE] transition"
+          >
+            Contact Us
+          </li>
+        </ul>
+
+        {/* CTA button */}
+        <button
+          onClick={openLocation}
+          className="mt-10 rounded-md bg-gradient-to-r from-[#60BBEE] to-[#0A72AD] px-5 py-3 text-sm font-medium text-white shadow-lg font-poppins transition"
+        >
+          Contact Us
+        </button>
+      </div>
+
+      {/* WHAT WE OFFER */}
+      <section ref={servicesRef} className="px-5 md:px-15 py-15 md:py-20">
+        <div className="">
+          <div className="grid gap-10 md:grid-cols-2 md:items-end">
+            <div>
+              <h2 className="text-3xl font-manrope font-semibold text-[#1E1E1E] md:text-4xl">
+                What We Offer
+              </h2>
+              <p className="mt-4 font-manrope max-w-md leading-8 text-[#1E1E1E]">
+                We source, analyse, and secure high-potential property deals for real estate investors across Ireland.
+              </p>
+            </div>
+            <p className="text-[#1E1E1E] font-manrope md:text-right">
+              We help investors save time and avoid uncertainty by finding property opportunities that are already researched and ready to move forward.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {services.map((s) => (
+              <div key={s.title} className="bg-gradient-to-r rounded-md from-[#60BBEE] to-[#0A72AD]">
+                <div className="p-5 rounded-md transition">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="h-80 w-full rounded-lg object-cover"
+                  />
+                  <div className="px-3 pt-4">
+                    <h3 className="text-2xl font-bold text-[#FFFFFF] font-manrope">{s.title}</h3>
+                    <p className="mt-2 text-sm text-[#FFFFFF] font-manrope">{s.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR LOCATION */}
+      <section
+        ref={locationRef}
+        className={`overflow-hidden bg-[#222222] px-10 md:px-22 transition-all duration-700 ease-out ${
+          locationOpen ? "py-15 opacity-100" : "max-h-0 py-0 opacity-0"
+        }`}
+      >
+        <div
+          className={`mx-auto max-w-7xl transition-all duration-700 ${
+            locationOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 className="text-3xl text-[#FFFFFF] font-manrope font-bold md:text-4xl">
+                Our Location
+              </h2>
+              <p className="mt-8 text-[#FFFFFF] font-manrope max-w-md">
+                Based in the heart of Dublin, we serve clients across Ireland and internationally.
+              </p>
+
+              <div className="mt-8 space-y-8">
+                <div className="flex items-center gap-4 rounded-xl">
+                  <div className="flex h-13 w-13 bg-[#383838] items-center justify-center rounded-full text-white">
+                    <img className="w-5 h-5" src="/Images/location1.webp" />
+                  </div>
+                  <div>
+                    <div className="text-md text-[#FFFFFF] font-manrope">Phone Number</div>
+                    <div className="text-sm mt-1 text-[#FFFFFF] font-manrope">0894578233</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 rounded-xl">
+                  <div className="flex h-13 w-13 bg-gradient-to-r from-[#60BBEE] to-[#0A72AD] items-center justify-center rounded-full text-white">
+                    <img className="w-5 h-5" src="/Images/location2.webp" />
+                  </div>
+                  <div>
+                    <div className="text-md text-[#FFFFFF] font-manrope">Email Address</div>
+                    <div className="text-sm mt-1 text-[#FFFFFF] font-manrope">info@obsoa.com</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 rounded-xl">
+                  <div className="flex h-13 w-13 bg-[#383838] items-center justify-center rounded-full text-white">
+                    <img className="w-5 h-5" src="/Images/location3.webp" />
+                  </div>
+                  <div>
+                    <div className="text-md text-[#FFFFFF] font-manrope">Location</div>
+                    <div className="text-sm mt-1 text-[#FFFFFF] font-manrope">3 William st W Galway</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div className="overflow-hidden rounded-2xl shadow-xl">
+  <iframe
+    title="Galway Map"
+    src={`https://www.google.com/maps/embed/v1/place?key=${MAPS_KEY}&q=3+William+Street+West,+Galway,+Ireland&zoom=15`}
+    className="h-80 w-full border-0 md:h-115"
+    allowFullScreen
+  />
+</div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white px-6 py-10">
+        <div className="mx-auto flex max-w-7xl flex-col md:items-center justify-between gap-4 md:flex-row">
+          <div className="flex flex-col">
+            <div className="text-lg font-semibold text-[#222222] font-manrope">
+              Ready to secure your next property deal in Dublin?
+            </div>
+            <h1 className="mt-5 text-[#1E1E1E] font-manrope">
+              Get in touch today and let's make it happen.
+            </h1>
+          </div>
+          <button
+            onClick={openLocation}
+            className="rounded-md bg-gradient-to-r from-[#60BBEE] to-[#0A72AD] px-6 py-3 text-sm font-semibold text-white shadow-lg transition font-manrope"
+          >
+            Contact Us
+          </button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-white px-6 py-6 text-center text-sm border-gray-200 border-t text-[#1E1E1E] font-manrope">
+        © {new Date().getFullYear()} | All Right Reserved
+      </footer>
     </div>
   );
-}
+};
+
+export default Home;
