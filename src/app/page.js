@@ -8,13 +8,12 @@ const Home = () => {
   const locationRef = useRef(null);
   const servicesRef = useRef(null);
 const MAPS_KEY = "AIzaSyA9z5wtpA5-uV1Zep7VuM9IUohv9AdYfuY";
-  const openLocation = () => {
-    setMenuOpen(false);
-    setLocationOpen(true);
-    setTimeout(() => {
-      locationRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
-  };
+const openLocation = () => {
+  setMenuOpen(false);
+  setTimeout(() => {
+    locationRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 50);
+};
 
   const scrollToServices = () => {
     setMenuOpen(false);
@@ -180,17 +179,11 @@ const MAPS_KEY = "AIzaSyA9z5wtpA5-uV1Zep7VuM9IUohv9AdYfuY";
       </section>
 
       {/* OUR LOCATION */}
-      <section
-        ref={locationRef}
-        className={`overflow-hidden bg-[#222222] px-10 md:px-22 transition-all duration-700 ease-out ${
-          locationOpen ? "py-15 opacity-100" : "max-h-0 py-0 opacity-0"
-        }`}
-      >
-        <div
-          className={`mx-auto max-w-7xl transition-all duration-700 ${
-            locationOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
+  <section
+  ref={locationRef}
+  className="bg-[#222222] px-10 md:px-22 py-15"
+>
+   <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <h2 className="text-3xl text-[#FFFFFF] font-manrope font-bold md:text-4xl">
