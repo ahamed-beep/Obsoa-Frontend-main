@@ -16,10 +16,7 @@ const poppins = localFont({
   variable: "--font-poppins",
 });
 
-export const metadata = {
-  title: "My App",
-  description: "My App Description",
-};
+
 
 export const metadata = {
   title: "Obsoa | Property Investment Dublin",
