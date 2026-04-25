@@ -218,19 +218,14 @@ const openLocation = () => {
                   </div>
                   <div>
                     <div className="text-md text-[#FFFFFF] font-manrope">Location</div>
-                    <div className="text-sm mt-1 text-[#FFFFFF] font-manrope">3 William st W Galway</div>
+<div className="text-sm mt-1 text-[#FFFFFF] font-manrope">Dublin, Ireland</div>
                   </div>
                 </div>
               </div>
             </div>
 
           <div className="overflow-hidden rounded-2xl shadow-xl">
-  <iframe
-    title="Galway Map"
-    src={`https://www.google.com/maps/embed/v1/place?key=${MAPS_KEY}&q=3+William+Street+West,+Galway,+Ireland&zoom=15`}
-    className="h-80 w-full border-0 md:h-115"
-    allowFullScreen
-  />
+src={`https://www.google.com/maps/embed/v1/place?key=${MAPS_KEY}&q=Dublin,+Ireland&zoom=13`}
 </div>
           </div>
         </div>
