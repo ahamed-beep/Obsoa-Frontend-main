@@ -71,13 +71,11 @@ const Home = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const getImageUrl = (img) => {
-    if (!img) return "";
-    if (img.startsWith("/uploads/")) {
-      return `${process.env.NEXT_PUBLIC_API_URL?.replace("/api", "") || "http://localhost:5000"}${img}`;
-    }
-    return img;
-  };
+ const getImageUrl = (img) => {
+  if (!img) return "";
+  return img; 
+};
+
 
   return (
     <div className="bg-white font-sans text-gray-900">

@@ -107,13 +107,11 @@ export default function AdminDashboard() {
     router.push("/");
   };
 
-  const getImageUrl = (img) => {
-    if (!img) return "";
-    if (img.startsWith("/uploads/")) {
-      return (process.env.NEXT_PUBLIC_API_URL?.replace("/api", "") || "http://localhost:5000") + img;
-    }
-    return img;
-  };
+ const getImageUrl = (img) => {
+  if (!img) return "";
+  return img; // Cloudinary ya local image dono handle ho jayenge
+};
+
 
   return (
     <div className="min-h-screen bg-[#0f172a] font-manrope">
