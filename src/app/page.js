@@ -225,7 +225,12 @@ const openLocation = () => {
             </div>
 
           <div className="overflow-hidden rounded-2xl shadow-xl">
+  <iframe
+    title="Galway Map"
 src={`https://www.google.com/maps/embed/v1/place?key=${MAPS_KEY}&q=Dublin,+Ireland&zoom=13`}
+    className="h-80 w-full border-0 md:h-115"
+    allowFullScreen
+  />
 </div>
           </div>
         </div>
