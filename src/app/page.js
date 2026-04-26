@@ -113,7 +113,7 @@ const Home = () => {
       <div onClick={() => setMenuOpen(false)} className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 md:hidden ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`} />
       <div className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#0f172a] flex flex-col px-6 py-8 transition-transform duration-300 md:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between mb-10">
-          <div className="text-5xl font-jomhuria font-light text-white">Obsoa</div>
+          <div className="text-5xl  font-josefin font-light text-white">Obsoa</div>
           <button onClick={() => setMenuOpen(false)} className="text-white"><X size={26} /></button>
         </div>
         <ul className="flex flex-col gap-6 text-base font-manrope text-white">
