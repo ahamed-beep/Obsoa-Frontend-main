@@ -17,7 +17,7 @@ const poppins = localFont({
 });
 
 const josefin = localFont({
-  src: "../../public/Font/JosefinSans-Regular.ttf",
+  src: "../../public/Font/JosefinSans-Thin.ttf",
   variable: "--font-josefin",
 });
 

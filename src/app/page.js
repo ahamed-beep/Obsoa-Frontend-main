@@ -85,7 +85,7 @@ const Home = () => {
         style={{ backgroundImage: "url('/Images/heroimageObsoa.webp')" }}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <div className="text-6xl font-josefin     font-light text-[#FFFFFF]">Obsoa</div>
+          <div className="text-6xl  font-josefin      text-[#FFFFFF]">Obsoa</div>
           <ul className="hidden items-center gap-8 text-sm text-[#FFFFFF] font-manrope md:flex">
             <li onClick={scrollToServices} className="cursor-pointer hover:text-white">What We Offer</li>
             <li onClick={openLocation} className="cursor-pointer hover:text-white">Location</li>
