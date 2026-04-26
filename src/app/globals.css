@@ -2,8 +2,9 @@
 
 @theme {
   --font-jomhuria: var(--font-jomhuria), sans-serif;
---font-manrope: var(--font-manrope), sans-serif;
---font-poppins: var(--font-poppins), sans-serif;
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-josefin: var(--font-josefin), sans-serif;
 }
 
 body {

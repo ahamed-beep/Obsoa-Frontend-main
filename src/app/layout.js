@@ -16,6 +16,10 @@ const poppins = localFont({
   variable: "--font-poppins",
 });
 
+const josefin = localFont({
+  src: "../../public/Font/JosefinSans-Regular.ttf",
+  variable: "--font-josefin",
+});
 
 
 export const metadata = {
@@ -36,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${jomhuria.variable} ${manrope.variable} ${poppins.variable}`}>
+   <html lang="en" className={`${jomhuria.variable} ${manrope.variable} ${poppins.variable} ${josefin.variable}`}>
       <body suppressHydrationWarning>
         {children}
       </body>
